@@ -1,6 +1,6 @@
 
 # Garden
-![404](screenshot.png)
+![404](screenshot.PNG)
 
 ## 3rd Person Multiplayer Game in Unreal Engine 4
 * Use ` to use the console
