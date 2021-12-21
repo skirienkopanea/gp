@@ -6,6 +6,7 @@
 #include "Engine/GameInstance.h"
 #include "MyGameInstance.generated.h"
 
+
 /**
  * 
  */
@@ -18,9 +19,15 @@ public:
 	UMyGameInstance(const FObjectInitializer& ObjectInitializer);
 	virtual void Init();
 
-	UFUNCTION(exec)
+	UFUNCTION(Exec)
+	void LoadMenu();
+
+	UFUNCTION(Exec)
 	void Host();
 
-	UFUNCTION(exec)
+	UFUNCTION(Exec)
 	void Join(const FString& Address);
+
+private:
+	TSubclassOf<class UUserWidget> MenuClass;
 };

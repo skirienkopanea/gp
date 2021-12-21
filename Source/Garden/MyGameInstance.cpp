@@ -3,15 +3,31 @@
 
 #include "MyGameInstance.h"
 #include "Engine/Engine.h"
+#include "UObject/ConstructorHelpers.h"
+#include "Blueprint/UserWidget.h"
 
 UMyGameInstance::UMyGameInstance(const FObjectInitializer& ObjectInitializer)
 {
-	UE_LOG(LogTemp, Warning, TEXT("GameInstance constructor"));
+	ConstructorHelpers::FClassFinder<UUserWidget> MenuBPClass(TEXT("/Game/Menu/WBP_MainMenu"));
+
+	if (!ensure(MenuBPClass.Class != nullptr)) return;
+	
+	MenuClass = MenuBPClass.Class;
 }
 
 void UMyGameInstance::Init()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Init constructor"));
+	UE_LOG(LogTemp, Warning, TEXT("Found class %s"),*MenuClass->GetName());
+}
+
+void UMyGameInstance::LoadMenu() {
+	if (!ensure(MenuClass != nullptr)) return;
+	UUserWidget* Menu = CreateWidget<UUserWidget>(this, MenuClass);
+
+	if (!ensure(Menu != nullptr)) return;
+
+	Menu->AddToViewport();
+
 }
 
 void UMyGameInstance::Host()
