@@ -83,3 +83,12 @@ void UMyGameInstance::Join(const FString& Address)
 
 	PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
 }
+
+void UMyGameInstance::LoadMainMenu()
+{
+	APlayerController* PlayerController = GetFirstLocalPlayerController();
+	if (!ensure(PlayerController != nullptr)) return; //use this for binding things even if the game is run directly as a server without a player
+
+	PlayerController->ClientTravel("/Game/Room/Levels/Menu", ETravelType::TRAVEL_Absolute);
+
+}

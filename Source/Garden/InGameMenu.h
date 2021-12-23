@@ -35,5 +35,8 @@ private:
 
 	IMenuInterface* MenuInterface;
 
+	UFUNCTION()
+	void Disconnect();
+
 
 };

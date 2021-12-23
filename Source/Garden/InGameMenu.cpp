@@ -12,6 +12,9 @@ bool UInGameMenu::Initialize()
 	
 	if (!ensure(CancelButton != nullptr)) return false;
 	CancelButton->OnClicked.AddDynamic(this, &UInGameMenu::Teardown);
+
+	if (!ensure(CancelButton != nullptr)) return false;
+	DisconnectButton->OnClicked.AddDynamic(this, &UInGameMenu::Disconnect);
 	
 
 	return true;
@@ -49,4 +52,13 @@ void UInGameMenu::Teardown()
 	PlayerController->SetInputMode(InputModeData);
 	PlayerController->bShowMouseCursor = false;
 
+}
+
+void UInGameMenu::Disconnect()
+{
+	if (MenuInterface != nullptr)
+	{
+		Teardown();
+		MenuInterface->LoadMainMenu();
+	}
 }
