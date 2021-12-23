@@ -6,6 +6,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Blueprint/UserWidget.h"
 #include "MainMenu.h"
+#include "InGameMenu.h"
 
 UMyGameInstance::UMyGameInstance(const FObjectInitializer& ObjectInitializer)
 {
@@ -15,8 +16,12 @@ UMyGameInstance::UMyGameInstance(const FObjectInitializer& ObjectInitializer)
 	
 	MenuClass = MenuBPClass.Class;
 
-	//load binding esc to show menu at some point
-	
+	//Make sure to also set as parent for WBP_InGameMenu (from UE4 editor GUI) InGameMenu
+	ConstructorHelpers::FClassFinder<UUserWidget> InGameMenuBPClass(TEXT("/Game/Menu/WBP_InGameMenu"));
+
+	if (!ensure(InGameMenuBPClass.Class != nullptr)) return;
+
+	InGameMenuClass = InGameMenuBPClass.Class;
 }
 
 void UMyGameInstance::Init()
@@ -35,6 +40,19 @@ void UMyGameInstance::LoadMenu() {
 	
 	Menu->Setup();
 	Menu->SetMenuInterface(this); //this allows us to use the commands below as callable menu interface functions
+
+}
+
+void UMyGameInstance::LoadInGameMenu() {
+	if (!ensure(InGameMenuClass != nullptr)) return;
+	InGameMenu = CreateWidget<UInGameMenu>(this, InGameMenuClass);
+
+	if (!ensure(InGameMenu != nullptr)) return;
+	InGameMenu->bIsFocusable = true;
+
+
+	InGameMenu->Setup();
+	InGameMenu->SetMenuInterface(this);
 
 }
 

@@ -84,7 +84,6 @@ void UMainMenu::OpenMainMenu()
 
 		MenuSwitcher->SetActiveWidget(MainMenu);
 	}
-
 }
 
 void UMainMenu::OpenJoinMenu()
