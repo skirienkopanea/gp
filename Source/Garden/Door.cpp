@@ -35,23 +35,23 @@ void ADoor::Open()
 		//AudioComponent->Play();
 	//}
 
-	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, TargetYaw, 0.1);
+	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, TargetYaw, 0.2);
 	SetActorRotation(Rotation);
-	UE_LOG(LogTemp, Warning, TEXT("Open"));
+	//UE_LOG(LogTemp, Warning, TEXT("Open"));
 
 }
 
 void ADoor::Close()
 {
 
-	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, InitialYaw, 0.1);
+	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, InitialYaw, 0.2);
 	SetActorRotation(Rotation);
 
 	if (FMath::Abs((int)Rotation.Yaw % 380 - InitialYaw) < 10 && FMath::Abs((int)Rotation.Yaw % 380 - InitialYaw) > 5) {
 		//AudioComponent->Play();
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("Close"));
+	//UE_LOG(LogTemp, Warning, TEXT("Close"));
 
 }
 
@@ -64,10 +64,10 @@ float ADoor::GetTotalMass() {
 
 	for (AActor* Actor : OverlappingActors) {
 		TotalMass += Actor->FindComponentByClass<UPrimitiveComponent>()->GetMass();
-		UE_LOG(LogTemp, Warning, TEXT("%s is on the pressure plate!"), *Actor->GetName());
+		//UE_LOG(LogTemp, Warning, TEXT("%s is on the pressure plate!"), *Actor->GetName());
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("%d mass on the pressure plate!"), TotalMass);
+	//UE_LOG(LogTemp, Warning, TEXT("%d mass on the pressure plate!"), TotalMass);
 
 
 	return TotalMass;

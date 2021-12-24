@@ -9,6 +9,7 @@ AAuthority::AAuthority() {
 }
 
 void AAuthority::BeginPlay() {
+	Super::BeginPlay();
 	if (HasAuthority())
 	{
 		SetReplicates(true);

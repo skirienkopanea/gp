@@ -5,16 +5,35 @@
 
 AMoveBox::AMoveBox()
 {
-	PrimaryActorTick.bCanEverTick = true;
 	SetMobility(EComponentMobility::Movable);
+	PrimaryActorTick.bCanEverTick = true;
 };
+
+void AMoveBox::BeginPlay() {
+	Super::BeginPlay();
+	if (HasAuthority()) {
+		SetReplicates(true);
+		SetReplicateMovement(true);
+		
+	}
+}
 
 void AMoveBox::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
-	FVector Location = GetActorLocation();
+	if (HasAuthority())
+	{
+		
+		FVector Location = GetActorLocation();
 
-	Location += FVector(5 * DeltaTime, 0, 0);
 
-	SetActorLocation(Location);
+		if ((int)Location.X >= 400) {
+			Location = FVector(-200, Location.Y, Location.Z);
+			
+		}
+			Location += FVector(30 * DeltaTime, 0, 0);
+	
+
+		SetActorLocation(Location);
+	}
 }
 

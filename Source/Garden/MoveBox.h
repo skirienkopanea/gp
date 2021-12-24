@@ -17,6 +17,7 @@ class GARDEN_API AMoveBox : public AStaticMeshActor
 public:
 	AMoveBox();
 	// Called every frame
+	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
 };
