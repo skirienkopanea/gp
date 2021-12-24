@@ -22,7 +22,7 @@ To play unzip the client file of your OS and run Garden.exe on windows or cd int
 ./Garden.sh
 ```
 
-You can host a dedicated server on linux by unzipping the server file and running in the relevant directory:
+You can host a dedicated server on linux by unzipping the server file and running in the relevant directory `chmod +x GardenServer.sh` and then:
 
 ```
 ./GardenServer.sh
