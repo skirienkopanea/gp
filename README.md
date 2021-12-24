@@ -38,3 +38,11 @@ You don't have to append the port to the IP Address of a server, i.e.the followi
 
 # Controls
 Use WASD to move, the mouse to aim and `Escape` button to display the in-game menu.
+
+# Development
+* Engine UE_4.27.2 (compiled from source code)
+* Client configuration: shipping
+* Server configuration: development (can only be packaged from source compiled engine)
+* Tutorials used:
+  * GameDev.tv tutorials on udemy 
+  * Flopperam videos to [Build Unreal Engine from Source](https://www.youtube.com/watch?v=MRJUWC90aJM) and to [Package a Dedicated Server executable](https://www.youtube.com/watch?v=zNUxzl8Dcb4)
