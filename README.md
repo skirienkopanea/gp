@@ -1,5 +1,5 @@
 
-# Garden
+# 3rd Person Multiplayer Prototype
 ![404](screenshot.PNG)
 
 * 3rd Person Multiplayer Game in Unreal Engine 4. Includes:
