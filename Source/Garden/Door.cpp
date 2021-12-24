@@ -35,7 +35,7 @@ void ADoor::Open()
 		//AudioComponent->Play();
 	//}
 
-	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, TargetYaw, 0.2);
+	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, TargetYaw, 0.1);
 	SetActorRotation(Rotation);
 	//UE_LOG(LogTemp, Warning, TEXT("Open"));
 
@@ -44,7 +44,7 @@ void ADoor::Open()
 void ADoor::Close()
 {
 
-	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, InitialYaw, 0.2);
+	Rotation.Yaw = FMath::Lerp(Rotation.Yaw, InitialYaw, 0.1);
 	SetActorRotation(Rotation);
 
 	if (FMath::Abs((int)Rotation.Yaw % 380 - InitialYaw) < 10 && FMath::Abs((int)Rotation.Yaw % 380 - InitialYaw) > 5) {
