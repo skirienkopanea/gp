@@ -2,9 +2,9 @@
 # 3rd Person Multiplayer Prototype
 ![404](screenshot.PNG)
 
-The game adds the following features to Unreal 4 Third Person game mode::
+The game adds the following features to Unreal 4 Third Person game mode:
 * Main menu
-* In-game menus
+* In-game menus (press ESC)
 * Volume triggered door
 * replicated cube platform
 * replicated phyisics football
@@ -35,3 +35,6 @@ You don't have to append the port to the IP Address of a server, i.e.the followi
 * Local host: `127.0.0.1`
 * Sample local IP Address: `192.168.1.10`
 * Domain name address: `kpan.nl`
+
+# Controls
+Use WASD to move, the mouse to aim and `Escape` button to display the in-game menu.
