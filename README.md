@@ -4,7 +4,7 @@
 
 The game adds the following features to Unreal 4 Third Person game mode:
 * Main menu
-* In-game menus (press ESC)
+* In-game menu (press ESC)
 * Volume triggered door
 * replicated cube platform
 * replicated phyisics football
