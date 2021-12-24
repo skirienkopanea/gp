@@ -92,3 +92,8 @@ void UMyGameInstance::LoadMainMenu()
 	PlayerController->ClientTravel("/Game/Room/Levels/Menu", ETravelType::TRAVEL_Absolute);
 
 }
+
+void UMyGameInstance::QuitGame()
+{
+	GetFirstLocalPlayerController()->ConsoleCommand("quit");
+}

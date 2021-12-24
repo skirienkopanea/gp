@@ -26,6 +26,9 @@ bool UMainMenu::Initialize()
 	if (!ensure(JoinKpanButton != nullptr)) return false;
 	JoinKpanButton->OnClicked.AddDynamic(this, &UMainMenu::JoinOfficialGardenServer);
 
+	if (!ensure(JoinKpanButton != nullptr)) return false;
+	QuitButton->OnClicked.AddDynamic(this, &UMainMenu::ExitGame);
+
 	return true;
 }
 
@@ -119,5 +122,15 @@ void UMainMenu::JoinOfficialGardenServer()
 	{
 		MenuInterface->Join(TEXT("kpan.nl"));
 		Teardown();
+	}
+}
+
+void UMainMenu::ExitGame()
+{
+
+	//UE_LOG(LogTemp, Warning, TEXT("I'm gonna host a server"));
+	if (MenuInterface != nullptr)
+	{
+		MenuInterface->QuitGame();
 	}
 }

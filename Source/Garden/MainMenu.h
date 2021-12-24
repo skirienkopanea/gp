@@ -52,6 +52,9 @@ private:
 	UPROPERTY(meta = (BindWidget))
 	class UButton* JoinKpanButton;
 
+	UPROPERTY(meta = (BindWidget))
+	class UButton* QuitButton;
+
 	UFUNCTION()
 	void HostServer();
 
@@ -66,6 +69,9 @@ private:
 
 	UFUNCTION()
 	void JoinOfficialGardenServer();
+
+	UFUNCTION()
+	void ExitGame();
 
 	IMenuInterface* MenuInterface;
 
