@@ -36,12 +36,15 @@ private:
 	float TargetYaw;
 
 	UPROPERTY(EditAnywhere)
+	float DoorSpeed;
+
+	UPROPERTY(EditAnywhere)
 		ATriggerVolume* PressurePlate;
 
 	UPROPERTY()
 	UAudioComponent* AudioComponent = nullptr;
 
-	void Open();
-	void Close();;
+	void Open(float DeltaTime);
+	void Close(float DeltaTime);;
 	float GetTotalMass();
 };
